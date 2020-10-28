@@ -46,7 +46,7 @@ var seckill = {
                         console.log("cookie=====" + $.cookie("JSESSIONID"))
                         console.log("cookie=====" + $.cookie("userPhone"))
                         // 验证通过 刷新页面
-                        // window.location.reload();
+                         window.location.reload();
                     } else {
                         // todo 错误文案信息写到前端
                         $("#killPhoneMessage").hide().html("<label class='label label-danger'>手机号码错误</label>").show(300);
