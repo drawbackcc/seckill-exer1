@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <!--配置自动扫描service包下的注解-->
+    <context:component-scan base-package="com.xxx.service"/>
+    <!--配置事务-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--注入数据库连接池-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--开启基于注解的申明式事务-->
+    <tx:annotation-driven/>
+
+
+    <!--定时任务扫描配置--><!--不想写新文件了，写这儿吧-->
+    <!--加@EnableScheduling注解-->
+<!--    <context:component-scan base-package="com.xxx.schedule"/>-->
+
+    <!--不加@EnableScheduling注解-->
+        <context:component-scan base-package="com.xxx.schedule"/>
+        <task:executor id="executor" pool-size="5" />
+        <task:scheduler id="scheduler" pool-size="10" />
+        <task:annotation-driven executor="executor" scheduler="scheduler" />
+
+<!--    不加@EnableScheduling注解，在component上写bean id-->
+<!--    <task:annotation-driven/>-->
+<!--    <context:component-scan base-package="com.xxx.interceptor"/>-->
+<!--    <bean id="task" class="com.xxx.schedule.ScheduleTask"/>-->
+<!--    <task:scheduler id="scheduler" pool-size="3" />-->
+<!--    <task:scheduled-tasks scheduler="scheduler">-->
+<!--        <task:scheduled ref="task" method="hello" cron="0/5 * * * * ?" />-->
+<!--    </task:scheduled-tasks>-->
+
+</beans>
+
+
+
+
+
+
+

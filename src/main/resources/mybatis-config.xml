@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC
+        "-//mybatis.org//DTD MyBatis Generator Configuration 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+    <!--首先配置全局属性-->
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <typeAliases>
+        <!-- 批量别名定义，扫描整个包下的类，别名为类名（大小写不敏感） -->
+        <package name="com.xxx.entity" />
+        <!-- 设置具体某类的别名 -->
+        <!-- <typeAlias type="com.sample.bean.Student" alias="Student"/>   -->
+    </typeAliases>
+</configuration>
