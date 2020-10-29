@@ -39,6 +39,11 @@
         ORDER BY create_time DESC
         LIMIT #{offset}, #{limit}
     </select>
+	
+	<select id="query" resultMap="BaseResultMap">
+        SELECT *
+        FROM seckill
+    </select>
 
     <!--调用储存过程-->
     <select id="killByProcedure" statementType="CALLABLE">

@@ -39,6 +39,14 @@ public class SeckillMapperTest {
             System.out.println(seckill);
         }
     }
+	
+	 @Test
+    public void query() {
+        List<Seckill> seckills = seckillMapper.query();
+        for(Seckill seckill : seckills){
+            System.out.println(seckill);
+        }
+    }
 
     @Test
     public void killByProcedure() {

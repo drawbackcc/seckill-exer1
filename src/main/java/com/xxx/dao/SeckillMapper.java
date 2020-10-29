@@ -35,6 +35,15 @@ public interface SeckillMapper {
      * @return 符合偏移量查出来的数据个数
      */
     List<Seckill> queryAll(@Param("offset") int offset, @Param("limit") int limit);
+	
+	  /**
+     *
+     * @description: 查询全部，可使用placehelper插件
+     * @param
+     * @return:
+     * @time:        2020/10/29 22:51
+     */
+    List<Seckill> query();
 
     /**
      *  使用储存过程执行秒杀
